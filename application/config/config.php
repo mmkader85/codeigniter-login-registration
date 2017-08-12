@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://local.chope.com/';
+$config['base_url'] = (isset($_SERVER['CI_ENV']) && $_SERVER['CI_ENV'] == 'production') ? 'http://live.chope.com/' : 'http://local.chope.com/';
 
 /*
 |--------------------------------------------------------------------------
