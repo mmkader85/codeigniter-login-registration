@@ -4,12 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Start extends CI_Controller
 {
 
-    /*public function __construct()
+    public function __construct()
     {
         parent::__construct();
-        $this->load->helper(array('url', 'html'));
-        $this->load->library('session');
-    }*/
+
+        $this->load->database();
+        $this->load->model('audit_model');
+    }
 
     public function index()
     {
@@ -18,7 +19,19 @@ class Start extends CI_Controller
 
     public function logout()
     {
-        $data = array('id_user' => '', 'name' => '');
+        $userId = $this->session->userdata('id_user');
+        if (!$userId) {
+            redirect('/');
+        }
+
+        $auditData = [
+            'type' => AUDIT_LOGOUT,
+            'id_user' => $userId,
+            'ip_address' => $this->input->ip_address()
+        ];
+        $this->audit_model->save_audit($auditData);
+
+        $data = array('id_user' => '', 'name' => '', 'user_email' => '');
         $this->session->unset_userdata($data);
         $this->session->sess_destroy();
 

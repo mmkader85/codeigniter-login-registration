@@ -10,10 +10,10 @@ class User_model extends CI_Model
         $this->table = 'users';
     }
 
-    function get_user($email, $pwd)
+    function get_user($email, $password)
     {
         $this->db->where('email', $email);
-        $this->db->where('password', md5($pwd));
+        $this->db->where('password', md5($password));
         $query = $this->db->get($this->table);
 
         return $query->result();
@@ -27,8 +27,14 @@ class User_model extends CI_Model
         return $query->result();
     }
 
-    function insert_user($data)
+    function save_user($data)
     {
-        return $this->db->insert($this->table, $data);
+        $insertFlag = $this->db->insert($this->table, $data);
+        if ($insertFlag) {
+            return $this->db->insert_id();
+        }
+        else {
+            return 0;
+        }
     }
 }
