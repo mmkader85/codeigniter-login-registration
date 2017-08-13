@@ -1,9 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Start
+ */
 class Start extends CI_Controller
 {
 
+    /**
+     * Start constructor.
+     */
     public function __construct()
     {
         parent::__construct();

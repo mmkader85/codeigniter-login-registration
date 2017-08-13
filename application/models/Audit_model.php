@@ -4,12 +4,21 @@ class Audit_model extends CI_Model
 {
     protected $table;
 
+    /**
+     * Audit_model constructor.
+     */
     function __construct()
     {
         parent::__construct();
         $this->table = 'audits';
     }
 
+    /**
+     * @param $idUser
+     * @param int $currentPage
+     * @param int $resultsPerPage
+     * @return array
+     */
     function get_audit_by_id_user($idUser, $currentPage = 0, $resultsPerPage = 0)
     {
         $offset = 0;
@@ -34,6 +43,10 @@ class Audit_model extends CI_Model
         return $query->result();
     }
 
+    /**
+     * @param $idUser
+     * @return int
+     */
     function get_audit_count_by_id_user($idUser)
     {
         $this->db->from($this->table);
@@ -43,6 +56,10 @@ class Audit_model extends CI_Model
         return $count;
     }
 
+    /**
+     * @param $data
+     * @return bool
+     */
     function save_audit($data)
     {
         return $this->db->insert($this->table, $data);

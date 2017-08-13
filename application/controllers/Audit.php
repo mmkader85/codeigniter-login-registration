@@ -1,8 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Audit
+ */
 class Audit extends CI_Controller
 {
+    /**
+     * Audit constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -20,7 +26,6 @@ class Audit extends CI_Controller
         }
 
         $data = [];
-
         $resultsPerPage = 5;
         $currentPageNo = $this->input->get('per_page');
         $resultsCount = $this->audit_model->get_audit_count_by_id_user($userId);

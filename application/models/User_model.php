@@ -4,12 +4,20 @@ class User_model extends CI_Model
 {
     protected $table;
 
+    /**
+     * User_model constructor.
+     */
     function __construct()
     {
         parent::__construct();
         $this->table = 'users';
     }
 
+    /**
+     * @param $email
+     * @param $password
+     * @return array
+     */
     function get_user($email, $password)
     {
         $this->db->where('email', $email);
@@ -19,6 +27,10 @@ class User_model extends CI_Model
         return $query->result();
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     function get_user_by_id($id)
     {
         $this->db->where('id', $id);
@@ -27,6 +39,10 @@ class User_model extends CI_Model
         return $query->result();
     }
 
+    /**
+     * @param $data
+     * @return int
+     */
     function save_user($data)
     {
         $insertFlag = $this->db->insert($this->table, $data);
