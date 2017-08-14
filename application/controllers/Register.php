@@ -8,6 +8,7 @@ class Register extends CI_Controller
         parent::__construct();
 
         $this->load->database();
+        $this->load->library('myredis');
         $this->load->model('user_model');
         $this->load->model('audit_model');
     }
@@ -52,6 +53,14 @@ class Register extends CI_Controller
                     'ip_address' => $this->input->ip_address()
                 ];
                 $this->audit_model->save_audit($auditData);
+
+                /*
+                 * Record all registered user's name, emails in Redis
+                 */
+                $redis = $this->myredis->get_instance();
+                $redis->hset('USER:'.$userId, 'name', $name);
+                $redis->hset('USER:'.$userId, 'email', $email);
+                $redis->rpush('REG_USERS', $email);
 
                 redirect('/');
             } else {

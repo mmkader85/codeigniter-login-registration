@@ -15,6 +15,7 @@ class Start extends CI_Controller
         parent::__construct();
 
         $this->load->database();
+        $this->load->library('myredis');
         $this->load->model('audit_model');
     }
 
@@ -36,6 +37,12 @@ class Start extends CI_Controller
             'ip_address' => $this->input->ip_address()
         ];
         $this->audit_model->save_audit($auditData);
+
+        /*
+         * Record all logout user's ID in Redis
+         */
+        $redis = $this->myredis->get_instance();
+        $redis->rpush('LOGOUT_USERS', $userId);
 
         $data = array('id_user' => '', 'name' => '', 'user_email' => '');
         $this->session->unset_userdata($data);
