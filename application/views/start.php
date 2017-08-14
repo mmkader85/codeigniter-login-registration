@@ -9,7 +9,7 @@
 
         <h1 class="text-center">Welcome to Chope</h1>
 
-        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-4 well text-center">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 well text-center">
             <?php echo $this->session->flashdata('msg'); ?>
 
             <?php if ($this->session->userdata('id_user')) { ?>
