@@ -1,8 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Login
+ */
 class Login extends CI_Controller
 {
+    /**
+     * Login constructor.
+     */
     public function __construct()
     {
         parent::__construct();

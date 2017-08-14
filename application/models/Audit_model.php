@@ -2,7 +2,11 @@
 
 class Audit_model extends CI_Model
 {
-    protected $table;
+    /**
+     * @var string
+     */
+    private $table;
+
 
     /**
      * Audit_model constructor.

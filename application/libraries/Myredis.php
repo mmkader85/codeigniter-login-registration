@@ -10,11 +10,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 use Predis\Client;
 
+/**
+ * Class Myredis
+ */
 class Myredis {
 
+    /**
+     * @var Client
+     */
     private $instance;
+
+    /**
+     * @var array
+     */
     private $config;
 
+    /**
+     * Myredis constructor.
+     * @param array $config
+     */
     public function __construct($config = array())
     {
         $this->config = $config;
@@ -25,6 +39,9 @@ class Myredis {
         ]);
     }
 
+    /**
+     * @return Client
+     */
     public function get_instance()
     {
         return $this->instance;

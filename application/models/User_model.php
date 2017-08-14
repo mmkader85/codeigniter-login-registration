@@ -2,7 +2,10 @@
 
 class User_model extends CI_Model
 {
-    protected $table;
+    /**
+     * @var string
+     */
+    private $table;
 
     /**
      * User_model constructor.
