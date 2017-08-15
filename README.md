@@ -20,6 +20,30 @@ This is a sample project to demonstrate user registration and user login in Code
 
 ### Installation in development machine
 1. Install composer dependencies **`composer install`**.
-2. Import **`docs/chope.sql`** into MySQL.
-3. Configure **`application/config/config.php`** and **`application/config/database.php`** according to your development server.
-4. Set up virtual host for the project. See **`docs/chope.conf`** for reference.
+2. Import [docs/chope.sql](docs/chope.sql) into MySQL.
+3. Configure the following according to your development server.
+    * [application/config/config.php](application/config/config.php)
+    * [application/config/myredis.php](application/config/myredis.php)
+    * [application/config/database.php](application/config/database.php)
+4. Set up virtual host for the project. See [docs/chope.conf](docs/chope.conf) for reference.
+
+### Files created or updated on top of CodeIgniter bundle
+
+##### Configuration files
+* [autoload.php](application/config/autoload.php)
+* [config.php](application/config/config.php)
+* [constants.php](application/config/constants.php)
+* [database.php](application/config/database.php)
+* [myredis.php](application/config/myredis.php)
+* [pagination.php](application/config/pagination.php)
+
+##### Controllers, Libraries and Models
+Docs for the user defined classes (Controllers, Libraries and Models) can be found [docs/phpdoc/index.html](docs/phpdoc/index.html)
+
+##### View files
+* [layout/header.php](application/views/layout/header.php)
+* [layout/footer.php](application/views/layout/footer.php)
+* [audit.php](application/views/audit.php)
+* [login.php](application/views/login.php)
+* [register.php](application/views/register.php)
+* [start.php](application/views/start.php)
