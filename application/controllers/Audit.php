@@ -2,22 +2,32 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Class Audit
+ * Class Audit.
+ *
+ * This controller serves the registration and login history page.
  */
 class Audit extends CI_Controller
 {
     /**
      * Audit constructor.
+     *
+     * Initialize the database, loads the pagination library and audit model.
      */
     public function __construct()
     {
         parent::__construct();
 
         $this->load->database();
-        $this->load->model('audit_model');
         $this->load->library('pagination');
+        $this->load->model('audit_model');
     }
 
+    /**
+     * Default function.
+     *
+     * Retrieve the registration and login history of the logged-in user from the database
+     * based on the session. Present the history in a tabular form with pagination.
+     */
     function index()
     {
         $userId = $this->session->userdata('id_user');

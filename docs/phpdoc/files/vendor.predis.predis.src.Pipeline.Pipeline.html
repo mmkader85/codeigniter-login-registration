@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Predis.html">\Predis</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">937</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">4</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1634484421"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1634484421" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2015171195"></a>
+                                <a href="../namespaces/Predis.html" style="margin-left: 30px; padding-left: 0">Predis</a>
+            </div>
+            <div id="namespace-2015171195" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1902872684"></a>
+                                <a href="../namespaces/Predis.Cluster.html" style="margin-left: 30px; padding-left: 0">Cluster</a>
+            </div>
+            <div id="namespace-1902872684" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1247506928"></a>
+                                <a href="../namespaces/Predis.Cluster.Distributor.html" style="margin-left: 30px; padding-left: 0">Distributor</a>
+            </div>
+            <div id="namespace-1247506928" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Cluster.Distributor.DistributorInterface.html">DistributorInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Cluster.Distributor.EmptyRingException.html">EmptyRingException</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Cluster.Distributor.HashRing.html">HashRing</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Cluster.Distributor.KetamaRing.html">KetamaRing</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1370703203"></a>
+                                <a href="../namespaces/Predis.Cluster.Hash.html" style="margin-left: 30px; padding-left: 0">Hash</a>
+            </div>
+            <div id="namespace-1370703203" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Cluster.Hash.HashGeneratorInterface.html">HashGeneratorInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Cluster.Hash.CRC16.html">CRC16</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Cluster.StrategyInterface.html">StrategyInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Cluster.ClusterStrategy.html">ClusterStrategy</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Cluster.PredisStrategy.html">PredisStrategy</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Cluster.RedisStrategy.html">RedisStrategy</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-703591453"></a>
+                                <a href="../namespaces/Predis.Collection.html" style="margin-left: 30px; padding-left: 0">Collection</a>
+            </div>
+            <div id="namespace-703591453" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1029318810"></a>
+                                <a href="../namespaces/Predis.Collection.Iterator.html" style="margin-left: 30px; padding-left: 0">Iterator</a>
+            </div>
+            <div id="namespace-1029318810" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Predis.Collection.Iterator.CursorBasedIterator.html">CursorBasedIterator</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Collection.Iterator.HashKey.html">HashKey</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Collection.Iterator.Keyspace.html">Keyspace</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Collection.Iterator.ListKey.html">ListKey</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Collection.Iterator.SetKey.html">SetKey</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Collection.Iterator.SortedSetKey.html">SortedSetKey</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1971709496"></a>
+                                <a href="../namespaces/Predis.Command.html" style="margin-left: 30px; padding-left: 0">Command</a>
+            </div>
+            <div id="namespace-1971709496" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-329936663"></a>
+                                <a href="../namespaces/Predis.Command.Processor.html" style="margin-left: 30px; padding-left: 0">Processor</a>
+            </div>
+            <div id="namespace-329936663" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Command.Processor.ProcessorInterface.html">ProcessorInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Command.Processor.KeyPrefixProcessor.html">KeyPrefixProcessor</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.Processor.ProcessorChain.html">ProcessorChain</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Command.CommandInterface.html">CommandInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.Command.PrefixableCommandInterface.html">PrefixableCommandInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Command.Command.html">Command</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ConnectionAuth.html">ConnectionAuth</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ConnectionEcho.html">ConnectionEcho</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ConnectionPing.html">ConnectionPing</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ConnectionQuit.html">ConnectionQuit</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ConnectionSelect.html">ConnectionSelect</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.GeospatialGeoAdd.html">GeospatialGeoAdd</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.GeospatialGeoDist.html">GeospatialGeoDist</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.GeospatialGeoHash.html">GeospatialGeoHash</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.GeospatialGeoPos.html">GeospatialGeoPos</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.GeospatialGeoRadius.html">GeospatialGeoRadius</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.GeospatialGeoRadiusByMember.html">GeospatialGeoRadiusByMember</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashDelete.html">HashDelete</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashExists.html">HashExists</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashGet.html">HashGet</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashGetAll.html">HashGetAll</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashGetMultiple.html">HashGetMultiple</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashIncrementBy.html">HashIncrementBy</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashIncrementByFloat.html">HashIncrementByFloat</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashKeys.html">HashKeys</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashLength.html">HashLength</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashScan.html">HashScan</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashSet.html">HashSet</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashSetMultiple.html">HashSetMultiple</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashSetPreserve.html">HashSetPreserve</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashStringLength.html">HashStringLength</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HashValues.html">HashValues</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HyperLogLogAdd.html">HyperLogLogAdd</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HyperLogLogCount.html">HyperLogLogCount</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.HyperLogLogMerge.html">HyperLogLogMerge</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyDelete.html">KeyDelete</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyDump.html">KeyDump</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyExists.html">KeyExists</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyExpire.html">KeyExpire</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyExpireAt.html">KeyExpireAt</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyKeys.html">KeyKeys</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyMigrate.html">KeyMigrate</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyMove.html">KeyMove</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyPersist.html">KeyPersist</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyPreciseExpire.html">KeyPreciseExpire</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyPreciseExpireAt.html">KeyPreciseExpireAt</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyPreciseTimeToLive.html">KeyPreciseTimeToLive</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyRandom.html">KeyRandom</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyRename.html">KeyRename</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyRenamePreserve.html">KeyRenamePreserve</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyRestore.html">KeyRestore</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyScan.html">KeyScan</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeySort.html">KeySort</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyTimeToLive.html">KeyTimeToLive</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.KeyType.html">KeyType</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListIndex.html">ListIndex</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListInsert.html">ListInsert</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListLength.html">ListLength</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListPopFirst.html">ListPopFirst</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListPopFirstBlocking.html">ListPopFirstBlocking</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListPopLast.html">ListPopLast</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListPopLastBlocking.html">ListPopLastBlocking</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListPopLastPushHead.html">ListPopLastPushHead</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListPopLastPushHeadBlocking.html">ListPopLastPushHeadBlocking</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListPushHead.html">ListPushHead</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListPushHeadX.html">ListPushHeadX</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListPushTail.html">ListPushTail</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListPushTailX.html">ListPushTailX</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListRange.html">ListRange</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListRemove.html">ListRemove</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListSet.html">ListSet</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ListTrim.html">ListTrim</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.PubSubPublish.html">PubSubPublish</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.PubSubPubsub.html">PubSubPubsub</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.PubSubSubscribe.html">PubSubSubscribe</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.PubSubSubscribeByPattern.html">PubSubSubscribeByPattern</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.PubSubUnsubscribe.html">PubSubUnsubscribe</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.PubSubUnsubscribeByPattern.html">PubSubUnsubscribeByPattern</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.RawCommand.html">RawCommand</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ScriptCommand.html">ScriptCommand</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerBackgroundRewriteAOF.html">ServerBackgroundRewriteAOF</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerBackgroundSave.html">ServerBackgroundSave</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerClient.html">ServerClient</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerCommand.html">ServerCommand</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerConfig.html">ServerConfig</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerDatabaseSize.html">ServerDatabaseSize</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerEval.html">ServerEval</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerEvalSHA.html">ServerEvalSHA</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerFlushAll.html">ServerFlushAll</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerFlushDatabase.html">ServerFlushDatabase</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerInfo.html">ServerInfo</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerInfoV26x.html">ServerInfoV26x</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerLastSave.html">ServerLastSave</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerMonitor.html">ServerMonitor</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerObject.html">ServerObject</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerSave.html">ServerSave</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerScript.html">ServerScript</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerSentinel.html">ServerSentinel</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerShutdown.html">ServerShutdown</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerSlaveOf.html">ServerSlaveOf</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerSlowlog.html">ServerSlowlog</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ServerTime.html">ServerTime</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetAdd.html">SetAdd</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetCardinality.html">SetCardinality</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetDifference.html">SetDifference</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetDifferenceStore.html">SetDifferenceStore</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetIntersection.html">SetIntersection</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetIntersectionStore.html">SetIntersectionStore</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetIsMember.html">SetIsMember</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetMembers.html">SetMembers</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetMove.html">SetMove</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetPop.html">SetPop</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetRandomMember.html">SetRandomMember</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetRemove.html">SetRemove</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetScan.html">SetScan</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetUnion.html">SetUnion</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.SetUnionStore.html">SetUnionStore</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringAppend.html">StringAppend</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringBitCount.html">StringBitCount</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringBitField.html">StringBitField</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringBitOp.html">StringBitOp</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringBitPos.html">StringBitPos</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringDecrement.html">StringDecrement</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringDecrementBy.html">StringDecrementBy</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringGet.html">StringGet</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringGetBit.html">StringGetBit</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringGetMultiple.html">StringGetMultiple</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringGetRange.html">StringGetRange</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringGetSet.html">StringGetSet</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringIncrement.html">StringIncrement</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringIncrementBy.html">StringIncrementBy</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringIncrementByFloat.html">StringIncrementByFloat</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringPreciseSetExpire.html">StringPreciseSetExpire</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringSet.html">StringSet</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringSetBit.html">StringSetBit</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringSetExpire.html">StringSetExpire</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringSetMultiple.html">StringSetMultiple</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringSetMultiplePreserve.html">StringSetMultiplePreserve</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringSetPreserve.html">StringSetPreserve</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringSetRange.html">StringSetRange</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringStrlen.html">StringStrlen</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.StringSubstr.html">StringSubstr</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.TransactionDiscard.html">TransactionDiscard</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.TransactionExec.html">TransactionExec</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.TransactionMulti.html">TransactionMulti</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.TransactionUnwatch.html">TransactionUnwatch</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.TransactionWatch.html">TransactionWatch</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetAdd.html">ZSetAdd</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetCardinality.html">ZSetCardinality</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetCount.html">ZSetCount</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetIncrementBy.html">ZSetIncrementBy</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetIntersectionStore.html">ZSetIntersectionStore</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetLexCount.html">ZSetLexCount</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetRange.html">ZSetRange</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetRangeByLex.html">ZSetRangeByLex</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetRangeByScore.html">ZSetRangeByScore</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetRank.html">ZSetRank</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetRemove.html">ZSetRemove</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetRemoveRangeByLex.html">ZSetRemoveRangeByLex</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetRemoveRangeByRank.html">ZSetRemoveRangeByRank</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetRemoveRangeByScore.html">ZSetRemoveRangeByScore</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetReverseRange.html">ZSetReverseRange</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetReverseRangeByLex.html">ZSetReverseRangeByLex</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetReverseRangeByScore.html">ZSetReverseRangeByScore</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetReverseRank.html">ZSetReverseRank</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetScan.html">ZSetScan</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetScore.html">ZSetScore</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Command.ZSetUnionStore.html">ZSetUnionStore</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1453016345"></a>
+                                <a href="../namespaces/Predis.Configuration.html" style="margin-left: 30px; padding-left: 0">Configuration</a>
+            </div>
+            <div id="namespace-1453016345" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Configuration.OptionInterface.html">OptionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.Configuration.OptionsInterface.html">OptionsInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Configuration.ClusterOption.html">ClusterOption</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Configuration.ConnectionFactoryOption.html">ConnectionFactoryOption</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Configuration.ExceptionsOption.html">ExceptionsOption</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Configuration.Options.html">Options</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Configuration.PrefixOption.html">PrefixOption</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Configuration.ProfileOption.html">ProfileOption</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Configuration.ReplicationOption.html">ReplicationOption</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-289594061"></a>
+                                <a href="../namespaces/Predis.Connection.html" style="margin-left: 30px; padding-left: 0">Connection</a>
+            </div>
+            <div id="namespace-289594061" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1282028642"></a>
+                                <a href="../namespaces/Predis.Connection.Aggregate.html" style="margin-left: 30px; padding-left: 0">Aggregate</a>
+            </div>
+            <div id="namespace-1282028642" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Connection.Aggregate.ClusterInterface.html">ClusterInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.Connection.Aggregate.ReplicationInterface.html">ReplicationInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Connection.Aggregate.MasterSlaveReplication.html">MasterSlaveReplication</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Connection.Aggregate.PredisCluster.html">PredisCluster</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Connection.Aggregate.RedisCluster.html">RedisCluster</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Connection.Aggregate.SentinelReplication.html">SentinelReplication</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Connection.AggregateConnectionInterface.html">AggregateConnectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.Connection.CompositeConnectionInterface.html">CompositeConnectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.Connection.ConnectionInterface.html">ConnectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.Connection.FactoryInterface.html">FactoryInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.Connection.NodeConnectionInterface.html">NodeConnectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.Connection.ParametersInterface.html">ParametersInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Connection.AbstractConnection.html">AbstractConnection</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Connection.CompositeStreamConnection.html">CompositeStreamConnection</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Connection.ConnectionException.html">ConnectionException</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Connection.Factory.html">Factory</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Connection.Parameters.html">Parameters</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Connection.PhpiredisSocketConnection.html">PhpiredisSocketConnection</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Connection.PhpiredisStreamConnection.html">PhpiredisStreamConnection</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Connection.StreamConnection.html">StreamConnection</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Connection.WebdisConnection.html">WebdisConnection</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1458296610"></a>
+                                <a href="../namespaces/Predis.Monitor.html" style="margin-left: 30px; padding-left: 0">Monitor</a>
+            </div>
+            <div id="namespace-1458296610" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Predis.Monitor.Consumer.html">Consumer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1621913629"></a>
+                                <a href="../namespaces/Predis.Pipeline.html" style="margin-left: 30px; padding-left: 0">Pipeline</a>
+            </div>
+            <div id="namespace-1621913629" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Predis.Pipeline.Atomic.html">Atomic</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Pipeline.ConnectionErrorProof.html">ConnectionErrorProof</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Pipeline.FireAndForget.html">FireAndForget</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Pipeline.Pipeline.html">Pipeline</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1279918339"></a>
+                                <a href="../namespaces/Predis.Profile.html" style="margin-left: 30px; padding-left: 0">Profile</a>
+            </div>
+            <div id="namespace-1279918339" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Profile.ProfileInterface.html">ProfileInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Profile.Factory.html">Factory</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Profile.RedisProfile.html">RedisProfile</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Profile.RedisUnstable.html">RedisUnstable</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Profile.RedisVersion200.html">RedisVersion200</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Profile.RedisVersion220.html">RedisVersion220</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Profile.RedisVersion240.html">RedisVersion240</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Profile.RedisVersion260.html">RedisVersion260</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Profile.RedisVersion280.html">RedisVersion280</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Profile.RedisVersion300.html">RedisVersion300</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Profile.RedisVersion320.html">RedisVersion320</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1602027275"></a>
+                                <a href="../namespaces/Predis.Protocol.html" style="margin-left: 30px; padding-left: 0">Protocol</a>
+            </div>
+            <div id="namespace-1602027275" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2122608082"></a>
+                                <a href="../namespaces/Predis.Protocol.Text.html" style="margin-left: 30px; padding-left: 0">Text</a>
+            </div>
+            <div id="namespace-2122608082" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-248932310"></a>
+                                <a href="../namespaces/Predis.Protocol.Text.Handler.html" style="margin-left: 30px; padding-left: 0">Handler</a>
+            </div>
+            <div id="namespace-248932310" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Protocol.Text.Handler.ResponseHandlerInterface.html">ResponseHandlerInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Protocol.Text.Handler.BulkResponse.html">BulkResponse</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Protocol.Text.Handler.ErrorResponse.html">ErrorResponse</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Protocol.Text.Handler.IntegerResponse.html">IntegerResponse</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Protocol.Text.Handler.MultiBulkResponse.html">MultiBulkResponse</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Protocol.Text.Handler.StatusResponse.html">StatusResponse</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Protocol.Text.Handler.StreamableMultiBulkResponse.html">StreamableMultiBulkResponse</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Predis.Protocol.Text.CompositeProtocolProcessor.html">CompositeProtocolProcessor</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Protocol.Text.ProtocolProcessor.html">ProtocolProcessor</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Protocol.Text.RequestSerializer.html">RequestSerializer</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Protocol.Text.ResponseReader.html">ResponseReader</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Protocol.ProtocolProcessorInterface.html">ProtocolProcessorInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.Protocol.RequestSerializerInterface.html">RequestSerializerInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.Protocol.ResponseReaderInterface.html">ResponseReaderInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Protocol.ProtocolException.html">ProtocolException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1506823944"></a>
+                                <a href="../namespaces/Predis.PubSub.html" style="margin-left: 30px; padding-left: 0">PubSub</a>
+            </div>
+            <div id="namespace-1506823944" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Predis.PubSub.AbstractConsumer.html">AbstractConsumer</a></li>
+                                                    <li class="class"><a href="../classes/Predis.PubSub.Consumer.html">Consumer</a></li>
+                                                    <li class="class"><a href="../classes/Predis.PubSub.DispatcherLoop.html">DispatcherLoop</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1867379343"></a>
+                                <a href="../namespaces/Predis.Replication.html" style="margin-left: 30px; padding-left: 0">Replication</a>
+            </div>
+            <div id="namespace-1867379343" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Predis.Replication.MissingMasterException.html">MissingMasterException</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Replication.ReplicationStrategy.html">ReplicationStrategy</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Replication.RoleException.html">RoleException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-953548514"></a>
+                                <a href="../namespaces/Predis.Response.html" style="margin-left: 30px; padding-left: 0">Response</a>
+            </div>
+            <div id="namespace-953548514" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-745300730"></a>
+                                <a href="../namespaces/Predis.Response.Iterator.html" style="margin-left: 30px; padding-left: 0">Iterator</a>
+            </div>
+            <div id="namespace-745300730" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Predis.Response.Iterator.MultiBulk.html">MultiBulk</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Response.Iterator.MultiBulkIterator.html">MultiBulkIterator</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Response.Iterator.MultiBulkTuple.html">MultiBulkTuple</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.Response.ErrorInterface.html">ErrorInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.Response.ResponseInterface.html">ResponseInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Response.Error.html">Error</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Response.ServerException.html">ServerException</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Response.Status.html">Status</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-389594752"></a>
+                                <a href="../namespaces/Predis.Session.html" style="margin-left: 30px; padding-left: 0">Session</a>
+            </div>
+            <div id="namespace-389594752" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Predis.Session.Handler.html">Handler</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1861151444"></a>
+                                <a href="../namespaces/Predis.Transaction.html" style="margin-left: 30px; padding-left: 0">Transaction</a>
+            </div>
+            <div id="namespace-1861151444" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Predis.Transaction.AbortedMultiExecException.html">AbortedMultiExecException</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Transaction.MultiExec.html">MultiExec</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Transaction.MultiExecState.html">MultiExecState</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Predis.ClientContextInterface.html">ClientContextInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Predis.ClientInterface.html">ClientInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Predis.Autoloader.html">Autoloader</a></li>
+                                                    <li class="class"><a href="../classes/Predis.Client.html">Client</a></li>
+                                                    <li class="class"><a href="../classes/Predis.ClientException.html">ClientException</a></li>
+                                                    <li class="class"><a href="../classes/Predis.CommunicationException.html">CommunicationException</a></li>
+                                                    <li class="class"><a href="../classes/Predis.NotSupportedException.html">NotSupportedException</a></li>
+                                                    <li class="class"><a href="../classes/Predis.PredisException.html">PredisException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Audit.html">Audit</a></li>
+                                                    <li class="class"><a href="../classes/Audit_model.html">Audit_model</a></li>
+                                                    <li class="class"><a href="../classes/EventsListener.html">EventsListener</a></li>
+                                                    <li class="class"><a href="../classes/HashMultipleGetAll.html">HashMultipleGetAll</a></li>
+                                                    <li class="class"><a href="../classes/IncrementExistingKeysBy.html">IncrementExistingKeysBy</a></li>
+                                                    <li class="class"><a href="../classes/Myredis.html">Myredis</a></li>
+                                                    <li class="class"><a href="../classes/NaiveDistributor.html">NaiveDistributor</a></li>
+                                                    <li class="class"><a href="../classes/Register.html">Register</a></li>
+                                                    <li class="class"><a href="../classes/SimpleDebuggableConnection.html">SimpleDebuggableConnection</a></li>
+                                                    <li class="class"><a href="../classes/Start.html">Start</a></li>
+                                                    <li class="class"><a href="../classes/User_model.html">User_model</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content file">
+                    <nav>
+                                                                    </nav>
+
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+                    <h1><small>vendor/predis/predis/src/Pipeline</small>Pipeline.php</h1>
+                    <p><em></em></p>
+                    
+
+                    
+                    
+                                        <h2>Classes</h2>
+                    <table class="table table-hover">
+                                            <tr>
+                            <td><a href="../classes/Predis.Pipeline.Pipeline.html">Pipeline</a></td>
+                            <td><em>Implementation of a command pipeline in which write and read operations of
+Redis commands are pipelined to alleviate the effects of network round-trips.</em></td>
+                        </tr>
+                                        </table>
+                                    </div>
+
+                <aside class="span4 detailsbar">
+                    <dl>
+                                                    <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                        
+                        
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                                            </table>
+
+                </aside>
+            </div>
+
+            
+            
+        </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label"></h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/vendor/predis/predis/src/Pipeline/Pipeline.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Predis.html">\Predis</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on August 15th, 2017 at 22:26.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

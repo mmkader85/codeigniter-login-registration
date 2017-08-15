@@ -1,22 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: akader
- * Date: 14/8/17
- * Time: 8:13 PM
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use Predis\Client;
 
 /**
- * Class Myredis
+ * Class Myredis.
+ *
+ * Wrapper for Predis/Client library to perform task in Redis storage.
  */
 class Myredis {
 
     /**
-     * @var Client
+     * @var Client All redis operation can be performed directly through this object.
      */
     private $instance;
 
@@ -27,7 +22,10 @@ class Myredis {
 
     /**
      * Myredis constructor.
-     * @param array $config
+     *
+     * Initialize connection to the Redis server based on the myredis configuration file.
+     *
+     * @param array $config CI automatically dispatches the myredis configuration here.
      */
     public function __construct($config = array())
     {

@@ -1,12 +1,16 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Class Audit_model.
+ *
+ * Model to help interact with audits table in database.
+ */
 class Audit_model extends CI_Model
 {
     /**
      * @var string
      */
     private $table;
-
 
     /**
      * Audit_model constructor.
@@ -18,6 +22,9 @@ class Audit_model extends CI_Model
     }
 
     /**
+     * Retrieve the registration and login history of the user from the database table
+     * based on the given id of user.
+     *
      * @param $idUser
      * @param int $currentPage
      * @param int $resultsPerPage
@@ -48,6 +55,9 @@ class Audit_model extends CI_Model
     }
 
     /**
+     * Counts the number of rows in the database table for both registration and login history of the
+     * user based on the given id of user.
+     *
      * @param $idUser
      * @return int
      */
@@ -61,6 +71,8 @@ class Audit_model extends CI_Model
     }
 
     /**
+     * Store the audit information in the database table as is.
+     *
      * @param $data
      * @return bool
      */

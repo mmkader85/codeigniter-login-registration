@@ -1,5 +1,10 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Class User_model.
+ *
+ * Model to help interact with users table in database.
+ */
 class User_model extends CI_Model
 {
     /**
@@ -17,6 +22,8 @@ class User_model extends CI_Model
     }
 
     /**
+     * Retrieve the user details from the database table based on the given email and password.
+     *
      * @param $email
      * @param $password
      * @return array
@@ -31,6 +38,8 @@ class User_model extends CI_Model
     }
 
     /**
+     * Retrieve the user details from the database table based on the given id of the user.
+     *
      * @param $id
      * @return array
      */
@@ -43,6 +52,8 @@ class User_model extends CI_Model
     }
 
     /**
+     * Store the user information in the database table as is.
+     *
      * @param $data
      * @return int
      */

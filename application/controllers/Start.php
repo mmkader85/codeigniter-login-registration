@@ -2,13 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Class Start
+ * Class Start.
+ *
+ * This is the default controller of this application. It serves the landing page and logout operation.
  */
 class Start extends CI_Controller
 {
 
     /**
      * Start constructor.
+     *
+     * Initialize the database, loads the myredis library and audit model.
      */
     public function __construct()
     {
@@ -19,11 +23,23 @@ class Start extends CI_Controller
         $this->load->model('audit_model');
     }
 
+    /**
+     * Default function.
+     *
+     * Renders the landing page view.
+     */
     public function index()
     {
         $this->load->view('start');
     }
 
+    /**
+     * Logout function.
+     *
+     * Destroys the user session and redirects the control over to logoutflash function to setup the logout
+     * flash message for the user.
+     * Records the logout user's ID in the Redis storage.
+     */
     public function logout()
     {
         $userId = $this->session->userdata('id_user');
@@ -51,6 +67,11 @@ class Start extends CI_Controller
         redirect('/start/logoutflash');
     }
 
+    /**
+     * Logoutflash function.
+     *
+     * Setup the logout flash message for the user and redirects the user to landing page.
+     */
     public function logoutflash()
     {
         $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">You have been logged out!</div>');

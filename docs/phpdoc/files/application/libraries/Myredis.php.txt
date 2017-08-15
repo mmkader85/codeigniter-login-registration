@@ -1,0 +1,48 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+use Predis\Client;
+
+/**
+ * Class Myredis.
+ *
+ * Wrapper for Predis/Client library to perform task in Redis storage.
+ */
+class Myredis {
+
+    /**
+     * @var Client All redis operation
+     */
+    private $instance;
+
+    /**
+     * @var array
+     */
+    private $config;
+
+    /**
+     * Myredis constructor.
+     *
+     * Initialize connection to the Redis server based on the myredis configuration file.
+     *
+     * @param array $config CI automatically dispatches the myredis configuration here.
+     */
+    public function __construct($config = array())
+    {
+        $this->config = $config;
+        $this->instance = new Client([
+            'host' => $this->config['redis_host'],
+            'scheme' => $this->config['redis_scheme'],
+            'port' => $this->config['redis_port']
+        ]);
+    }
+
+    /**
+     * @return Client
+     */
+    public function get_instance()
+    {
+        return $this->instance;
+    }
+
+}

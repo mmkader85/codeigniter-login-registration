@@ -1,0 +1,70 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+/**
+ * Class User_model.
+ *
+ * Model to help interact with users table in database.
+ */
+class User_model extends CI_Model
+{
+    /**
+     * @var string
+     */
+    private $table;
+
+    /**
+     * User_model constructor.
+     */
+    function __construct()
+    {
+        parent::__construct();
+        $this->table = 'users';
+    }
+
+    /**
+     * Retrieve the user details from the database table based on the given email and password.
+     *
+     * @param $email
+     * @param $password
+     * @return array
+     */
+    function get_user($email, $password)
+    {
+        $this->db->where('email', $email);
+        $this->db->where('password', md5($password));
+        $query = $this->db->get($this->table);
+
+        return $query->result();
+    }
+
+    /**
+     * Retrieve the user details from the database table based on the given id of the user.
+     *
+     * @param $id
+     * @return array
+     */
+    function get_user_by_id($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get($this->table);
+
+        return $query->result();
+    }
+
+    /**
+     * Store the user information in the database table as is.
+     *
+     * @param $data
+     * @return int
+     */
+    function save_user($data)
+    {
+        $insertFlag = $this->db->insert($this->table, $data);
+        if ($insertFlag) {
+            return $this->db->insert_id();
+        }
+        else {
+            return 0;
+        }
+    }
+}

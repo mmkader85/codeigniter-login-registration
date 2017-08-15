@@ -2,12 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Class Register
+ * Class Register.
+ *
+ * This controller serves the registration process.
  */
 class Register extends CI_Controller
 {
     /**
      * Register constructor.
+     *
+     * Initialize the database, loads the myredis library, user model and audit model.
      */
     public function __construct()
     {
@@ -19,6 +23,12 @@ class Register extends CI_Controller
         $this->load->model('audit_model');
     }
 
+    /**
+     * Default function.
+     *
+     * Gets the user information in the registration form, validates it and create an account for the user in the database.
+     * Records the registered user's details in the Redis storage.
+     */
     function index()
     {
         $this->form_validation->set_rules(

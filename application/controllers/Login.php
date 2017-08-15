@@ -2,12 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Class Login
+ * Class Login.
+ *
+ * This controller serves the login process.
  */
 class Login extends CI_Controller
 {
     /**
      * Login constructor.
+     *
+     * Initialize the database, loads the user model and audit model.
      */
     public function __construct()
     {
@@ -18,6 +22,13 @@ class Login extends CI_Controller
         $this->load->model('audit_model');
     }
 
+    /**
+     * Default function.
+     *
+     * Gets the user's email and password in the login form and authorizes the credentials.
+     * Once authorizes successfully, creates the session for the user.
+     * Both successful and failed authorizations are recorded in database.
+     */
     public function index()
     {
         $email = $this->input->post("email");
@@ -54,7 +65,6 @@ class Login extends CI_Controller
 
                 $auditData = [
                     'type' => AUDIT_LOGIN_FAILED,
-                    'id_user' => $userId,
                     'user_email' => $email,
                     'ip_address' => $this->input->ip_address()
                 ];

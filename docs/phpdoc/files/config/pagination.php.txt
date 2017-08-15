@@ -1,0 +1,16 @@
+<?php
+
+$config['use_page_numbers'] = true;
+$config['page_query_string'] = true;
+
+$config['num_tag_open'] = '<span class="pagination-num">';
+$config['num_tag_close'] = '</span>';
+
+$config['cur_tag_open'] = '<span class="pagination-num">';
+$config['cur_tag_close'] = '</span>';
+
+$config['prev_tag_open'] = '<span class="pagination-num">';
+$config['prev_tag_close'] = '</span>';
+
+$config['next_tag_open'] = '<span class="pagination-num">';
+$config['next_tag_close'] = '</span>';
