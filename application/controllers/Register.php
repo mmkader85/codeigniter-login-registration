@@ -64,8 +64,8 @@ class Register extends CI_Controller
                  * Record all registered user's name, emails in Redis
                  */
                 $redis = $this->myredis->get_instance();
-                $redis->hset('USER:'.$userId, 'name', $name);
-                $redis->hset('USER:'.$userId, 'email', $email);
+                $redis->hset('USER:' . $userId, 'name', $name);
+                $redis->hset('USER:' . $userId, 'email', $email);
                 $redis->rpush('REG_USERS', $email);
 
                 redirect('/');

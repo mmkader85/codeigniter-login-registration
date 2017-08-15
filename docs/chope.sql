@@ -1,18 +1,5 @@
 CREATE SCHEMA `chope` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-/*CREATE TABLE `chope`.`users` (
-  `id_user` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `name` VARCHAR(45) NOT NULL,
-  `created_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `last_login_time` DATETIME NULL,
-  PRIMARY KEY (`id_users`),
-  UNIQUE INDEX `username_UNIQUE` (`email` ASC));*/
-
--- ALTER TABLE `chope`.`users` ADD COLUMN `contact_no` VARCHAR(45) NOT NULL AFTER `name`;
-
 CREATE TABLE `users` (
   `id_user` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
