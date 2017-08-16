@@ -19,7 +19,8 @@ This is a sample project to demonstrate user registration and user login in Code
 3. [Registration and Login History](docs/uml/03_Sequence_Registration_Login_History.png)
 
 ### phpDocumentor
-Docs for the user defined classes (Controllers, Libraries and Models) can be found in **`docs/phpdoc/index.html`**
+Docs for the user defined classes (Controllers, Libraries and Models) can be found in [docs/phpdoc/index.html](docs/phpdoc/index.html).
+Not accessible from web server. Access it locally. 
 
 ### Requirements
 1. PHP 5.6
