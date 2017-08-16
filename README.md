@@ -18,6 +18,9 @@ This is a sample project to demonstrate user registration and user login in Code
 2. [Login and Logout](docs/uml/02_Sequence_Login_Logout.png)
 3. [Registration and Login History](docs/uml/03_Sequence_Registration_Login_History.png)
 
+### phpDocumentor
+Docs for the user defined classes (Controllers, Libraries and Models) can be found in **`docs/phpdoc/index.html`**
+
 ### Requirements
 1. PHP 5.6
 2. Mysql 5.7
@@ -35,7 +38,7 @@ This is a sample project to demonstrate user registration and user login in Code
 
 ### Files created or updated on top of CodeIgniter bundle
 
-##### Configuration files
+##### Config
 * [autoload.php](application/config/autoload.php)
 * [config.php](application/config/config.php)
 * [constants.php](application/config/constants.php)
@@ -43,10 +46,20 @@ This is a sample project to demonstrate user registration and user login in Code
 * [myredis.php](application/config/myredis.php)
 * [pagination.php](application/config/pagination.php)
 
-##### Controllers, Libraries and Models
-Docs for the user defined classes (Controllers, Libraries and Models) can be found [docs/phpdoc/index.html](docs/phpdoc/index.html)
+##### Controllers
+* [Audit.php](application/controllers/Audit.php)
+* [Login.php](application/controllers/Login.php)
+* [Register.php](application/controllers/Register.php)
+* [Start.php](application/controllers/Start.php)
 
-##### View files
+##### Libraries
+* [Myredis.php](application/libraries/Myredis.php)
+
+##### Models
+* [Audit_model.php](application/models/Audit_model.php)
+* [User_model.php](application/models/User_model.php)
+
+##### Views
 * [layout/header.php](application/views/layout/header.php)
 * [layout/footer.php](application/views/layout/footer.php)
 * [audit.php](application/views/audit.php)
