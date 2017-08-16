@@ -12,6 +12,12 @@ This is a sample project to demonstrate user registration and user login in Code
 2. Logged in users can see their register/login history.
 3. Logout action is recorded in Redis.
 
+### UML
+##### Sequence Diagrams
+1. [Register](docs/uml/01_Sequence_Register.png)
+2. [Login and Logout](docs/uml/02_Sequence_Login_Logout.png)
+3. [Registration and Login History](docs/uml/03_Sequence_Registration_Login_History.png)
+
 ### Requirements
 1. PHP 5.6
 2. Mysql 5.7
